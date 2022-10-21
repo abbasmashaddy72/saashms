@@ -6,13 +6,41 @@
     "license": "MIT",
     "require": {
         "php": "^8.0.2",
+        "arcanedev/log-viewer": "^9.0",
+        "asantibanez/livewire-calendar": "dev-master",
+        "asantibanez/livewire-charts": "^2.4",
+        "bepsvpt/secure-headers": "^7.2",
+        "binarytorch/larecipe": "^2.5",
+        "davmixcool/laravel-meta-manager": "^1.2",
+        "dietercoopman/smart": "^1.6",
+        "filament/notifications": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
+        "hammerstone/fast-paginate": "^0.1.10",
+        "kirschbaum-development/eloquent-power-joins": "^2.6",
+        "knplabs/knp-snappy": "^1.4",
+        "lab404/laravel-impersonate": "^1.7",
         "laravel/framework": "^9.19",
         "laravel/sanctum": "^3.0",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "livewire/livewire": "^2.10",
+        "maatwebsite/excel": "^3.1",
+        "psr/simple-cache": "^1.0",
+        "rawilk/laravel-breadcrumbs": "^3.0",
+        "rawilk/laravel-form-components": "^7.1",
+        "shvetsgroup/laravel-email-database-log": "^10.0",
+        "spatie/laravel-cookie-consent": "^3.2",
+        "spatie/laravel-medialibrary": "^10.0.0",
+        "tzsk/sms": "^6.0",
+        "vildanbina/livewire-wizard": "^1.2",
+        "wire-elements/modal": "^1.0",
+        "wireui/wireui": "^1.17"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.7",
+        "beyondcode/laravel-query-detector": "^1.6",
         "fakerphp/faker": "^1.9.1",
+        "glhd/laravel-dumper": "^1.0",
+        "imanghafoori/laravel-microscope": "^1.0",
         "laravel/breeze": "^1.14",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.0.1",
@@ -36,10 +64,12 @@
     "scripts": {
         "post-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
-            "@php artisan package:discover --ansi"
+            "@php artisan package:discover --ansi",
+            "@php artisan vendor:publish --force --tag=livewire:assets --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "@php artisan filament:upgrade"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
@@ -61,6 +91,7 @@
             "pestphp/pest-plugin": true
         }
     },
+    "repositories": [ { "type": "vcs", "url": "https://github.com/abbasmashaddy72/livewire-calendar" } ],
     "minimum-stability": "dev",
     "prefer-stable": true
 }
