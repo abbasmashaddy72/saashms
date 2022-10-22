@@ -7,3 +7,7 @@
 @import "flatpickr/dist/flatpickr.min.css";
 
 @import "./custom.css";
+
+@import "./_colors.css";
+
+@import "./fonts/_roboto.css";
