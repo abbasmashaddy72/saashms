@@ -2,7 +2,7 @@ import './bootstrap';
 
 import Alpine from "alpinejs";
 import AlpineFloatingUI from '@awcodes/alpine-floating-ui'
-import NotificationsAlpinePlugin from '../../vendor/filament/notifications/dist/module.esm'
+import NotificationsAlpinePlugin from '../../../vendor/filament/notifications/dist/module.esm'
 import flatpickr from "flatpickr";
 import * as FilePond from "filepond";
 import { createPopper } from "@popperjs/core";
@@ -17,6 +17,6 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-require('vendor/wire-elements/modal/resources/js/modal');
+require('../../../vendor/wire-elements/modal/resources/js/modal');
 
 import "./theme"

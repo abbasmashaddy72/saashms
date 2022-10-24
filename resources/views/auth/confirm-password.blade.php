@@ -1,35 +1,38 @@
-<x-guest-layout>
-    <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot>
+<x-auth-layout>
+    <x-auth.container>
+        @slot('left')
+            <img alt="Larvel Tailwind HTML Admin Template" class="w-1/2 -mt-16 -intro-x"
+                src="{{ asset('dist/images/illustration.svg') }}">
+            <div class="w-4/6 mt-10 text-4xl font-medium leading-tight text-white -intro-x">
+                {{ __('This is a secure area of the application.') }}</div>
+        @endslot
+        @slot('right')
+            <h2 class="text-2xl font-bold text-center intro-x xl:text-3xl xl:text-left">{{ __('Confirm your password?') }}
+            </h2>
 
-        <div class="mb-4 text-sm text-gray-600">
-            {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
-        </div>
-
-        <form method="POST" action="{{ route('password.confirm') }}">
-            @csrf
-
-            <!-- Password -->
-            <div>
-                <x-input-label for="password" :value="__('Password')" />
-
-                <x-text-input id="password" class="block mt-1 w-full"
-                                type="password"
-                                name="password"
-                                required autocomplete="current-password" />
-
-                <x-input-error :messages="$errors->get('password')" class="mt-2" />
+            <div class="mt-2 text-center intro-x text-slate-400">
+                {{ __('This is a secure area of the application. Please confirm your password before continuing.') }}
             </div>
 
-            <div class="flex justify-end mt-4">
-                <x-primary-button>
-                    {{ __('Confirm') }}
-                </x-primary-button>
+            <div class="mt-8 intro-x">
+
+                <!-- Validation Errors -->
+                <x-errors title="We found {errors} validation error(s)" />
+
+                <form id="login-form" method="POST" action="{{ route('password.confirm') }}">
+                    @csrf
+
+                    <x-input name="password" label="{{ __('Password') }}" type="password" required autofocus
+                        :show-errors="false" />
+
+                    <div class="flex justify-end mt-5 intro-x xl:mt-8">
+
+                        <button class="w-full px-4 py-3 mr-auto align-top btn btn-primary xl:w-52 xl:mr-3" id="btn-login"
+                            type="submit">{{ __('Confirm') }}</button>
+                    </div>
+
+                </form>
             </div>
-        </form>
-    </x-auth-card>
-</x-guest-layout>
+        @endslot
+    </x-auth.container>
+</x-auth-layout>

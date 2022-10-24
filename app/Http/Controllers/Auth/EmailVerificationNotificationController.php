@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class EmailVerificationNotificationController extends Controller
 {
+    public function __construct()
+    {
+        view()->share('title', 'Email Verification');
+    }
+
     /**
      * Send a new email verification notification.
      *

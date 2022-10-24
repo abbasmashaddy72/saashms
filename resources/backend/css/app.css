@@ -1,0 +1,17 @@
+@import "./theme.css";
+
+@import "./_colors.css";
+
+@import "./form-components/index.css";
+
+@import "filepond/dist/filepond.min.css";
+
+@import "flatpickr/dist/flatpickr.min.css";
+
+@import "./fonts/_roboto.css";
+
+@import "./custom.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

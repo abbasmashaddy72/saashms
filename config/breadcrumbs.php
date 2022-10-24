@@ -12,7 +12,7 @@ return [
      * - 'breadcrumbs::bulma' - Bulma
      * - 'breadcrumbs::json-ld' - JSON-LD Structured Data
      */
-    'view' => 'breadcrumbs::tailwind',
+    'view' => 'breadcrumbs::custom',
 
     /*
      * Breadcrumb File(s):

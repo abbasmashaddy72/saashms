@@ -16,6 +16,7 @@
         "filament/notifications": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
         "hammerstone/fast-paginate": "^0.1.10",
+        "jenssegers/agent": "^2.6",
         "kirschbaum-development/eloquent-power-joins": "^2.6",
         "knplabs/knp-snappy": "^1.4",
         "lab404/laravel-impersonate": "^1.7",
@@ -54,7 +55,10 @@
             "App\\": "app/",
             "Database\\Factories\\": "database/factories/",
             "Database\\Seeders\\": "database/seeders/"
-        }
+        },
+        "files":[
+            "app/Helpers/helpers.php"
+        ]
     },
     "autoload-dev": {
         "psr-4": {

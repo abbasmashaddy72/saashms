@@ -13,6 +13,10 @@ use Illuminate\Validation\Rules;
 
 class RegisteredUserController extends Controller
 {
+    public function __construct()
+    {
+        view()->share('title', 'Register');
+    }
     /**
      * Display the registration view.
      *
