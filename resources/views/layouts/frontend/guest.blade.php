@@ -11,7 +11,7 @@
         <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
         <!-- Scripts -->
-        @vite(['resources/backend/css/app.css', 'resources/backend/js/app.js'])
+        @vite(['resources/css/backend/app.css', 'resources/js/backend/app.js'])
     </head>
     <body>
         <div class="font-sans antialiased text-gray-900">
