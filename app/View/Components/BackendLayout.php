@@ -22,6 +22,11 @@ class BackendLayout extends Component
                 'title' => 'Dashboard',
                 'route_name' => 'dashboard',
             ],
+            'users' => [
+                'icon' => 'users',
+                'title' => 'Users',
+                'route_name' => 'users',
+            ],
             'devider'
         ];
 

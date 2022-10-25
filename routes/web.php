@@ -17,10 +17,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::group(['middleware' => 'auth', 'verified', 'password.confirm', 'namespace' => 'App\Http\Controllers\Backend'], function () {
+    Route::get('dashboard', 'DashboardController@index')->name('dashboard');
+    Route::get('users', 'UserController@index')->name('users');
+    Route::impersonate();
+});
 
 require __DIR__ . '/auth.php';
-
-Route::impersonate();

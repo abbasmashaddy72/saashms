@@ -17,6 +17,6 @@ window.Alpine = Alpine;
 
 Alpine.start();
 
-require('../../../vendor/wire-elements/modal/resources/js/modal');
+import '../../../vendor/wire-elements/modal/resources/js/modal';
 
 import "./theme"

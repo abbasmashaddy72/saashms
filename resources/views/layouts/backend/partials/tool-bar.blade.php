@@ -51,7 +51,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="" class="dropdown-item hover:bg-white/5">
+                    <a href="{{ route('larecipe.index') }}" class="dropdown-item hover:bg-white/5" target="__blank">
                         <i data-feather="help-circle" class="w-4 h-4 mr-2"></i>
                         Help
                     </a>

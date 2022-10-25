@@ -9,14 +9,15 @@ const {
 module.exports = {
     mode: 'jit',
     content: [
+        './app/Http/Livewire/**/*Table.php',
         './config/livewire-datatables.php',
         "./resources/views/**/*.blade.php",
         "./storage/framework/views/*.php",
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
         "./vendor/wire-elements/modal/resources/views/*.blade.php",
         './vendor/wireui/wireui/resources/**/*.blade.php',
-        './vendor/wireui/wireui/ts/**/*.ts',
         './vendor/wireui/wireui/src/View/**/*.php',
+        './vendor/wireui/wireui/ts/**/*.ts',
     ],
     darkMode: "class",
     options: {
@@ -82,7 +83,11 @@ module.exports = {
         },
     },
 
-    plugins: [require("@tailwindcss/forms")],
+    plugins: [
+        require("@tailwindcss/forms")({
+          strategy: 'class',
+        }),
+      ],
     variants: {
         extend: {
             boxShadow: ['dark']
