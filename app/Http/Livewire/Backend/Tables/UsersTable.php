@@ -51,6 +51,10 @@ class UsersTable extends LivewireDatatable
 
             DateColumn::name('created_at')
                 ->filterable(),
+
+            Column::callback(['id'], function ($id) {
+                return view('backend.pages.users.actions', ['id' => $id]);
+            })->excludeFromExport()->unsortable()->label('Action'),
         ];
     }
 }

@@ -60,14 +60,22 @@
                     <hr class="dropdown-divider border-white/[0.08]">
                 </li>
                 <li>
-                    <form method="POST" action="{{ route('logout') }}">
-                        @csrf
-                        <a href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();"
-                            class="dropdown-item hover:bg-white/5">
+                    @if (app('impersonate')->isImpersonating())
+                        <a href="{{ route('impersonate.leave') }}" class="dropdown-item hover:bg-white/5">
                             <i data-feather="toggle-right"class="w-4 h-4 mr-2"></i>
-                            Logout
+                            Leave Impersonate
                         </a>
-                    </form>
+                    @else
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault(); this.closest('form').submit();"
+                                class="dropdown-item hover:bg-white/5">
+                                <i data-feather="toggle-right"class="w-4 h-4 mr-2"></i>
+                                Logout
+                            </a>
+                        </form>
+                    @endif
                 </li>
             </ul>
         </div>
