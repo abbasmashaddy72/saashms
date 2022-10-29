@@ -55,11 +55,6 @@ class BranchModal extends ModalComponent
         $this->closeModal();
     }
 
-    public static function modalMaxWidth(): string
-    {
-        return '4xl';
-    }
-
     public function render()
     {
         return view('livewire.backend.modals.branch-modal');

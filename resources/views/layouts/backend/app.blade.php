@@ -1,3 +1,6 @@
+@props([
+    'right_button' => false,
+])
 <!DOCTYPE html>
 
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="light">
@@ -55,10 +58,10 @@
                         {{ $title }}
                     @endif
                 </div>
-                @if (Route::currentRouteName() != 'dashboard')
+                @if ($right_button)
                     <div class="sm:w-auto sm:mt-0">
-                        <a href="{{ $top_right_url ?? url()->previous() }}"
-                            class="mr-2 shadow-md btn btn-primary">{{ $top_right_text ?? __('Back') }}</a>
+                        <a href="{{ $top_right_url }}"
+                            class="mr-2 shadow-md btn btn-primary">{{ $top_right_text }}</a>
                     </div>
                 @endif
             </div>

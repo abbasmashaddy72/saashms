@@ -2,19 +2,19 @@
 
 namespace App\Http\Livewire\Backend\Tables;
 
-use App\Models\Branch;
+use App\Models\HospitalSchedule;
 use Mediconesystems\LivewireDatatables\Column;
-use Mediconesystems\LivewireDatatables\DateColumn;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
+use Mediconesystems\LivewireDatatables\TimeColumn;
 
-class BranchTable extends LivewireDatatable
+class HospitalScheduleTable extends LivewireDatatable
 {
-    public $model = Branch::class;
+    public $model = HospitalSchedule::class;
     public $exportable = true;
 
     public function builder()
     {
-        return Branch::query()->with('areas');
+        return HospitalSchedule::query()->with('branches');
     }
 
     public function columns()
@@ -26,34 +26,25 @@ class BranchTable extends LivewireDatatable
             Column::index($this)
                 ->unsortable(),
 
-            Column::name('areas.name')
+            Column::name('branches.landmark')
+                ->searchable()
                 ->filterable()
                 ->label('Area Name'),
 
-            Column::name('address')
+            Column::name('day')
                 ->truncate(50)
                 ->searchable(),
 
-            Column::name('landmark')
+            TimeColumn::name('start_time')
+                ->searchable()
                 ->filterable(),
 
-            Column::name('manager_name')
-                ->filterable(),
-
-            Column::name('manager_contact_no')
-                ->filterable(),
-
-            Column::name('manager_email')
-                ->filterable(),
-
-            Column::name('branch_number')
-                ->filterable(),
-
-            DateColumn::name('created_at')
+            TimeColumn::name('end_time')
+                ->searchable()
                 ->filterable(),
 
             Column::callback(['id'], function ($id) {
-                return view('backend.pages.settings.branch-actions', ['id' => $id]);
+                return view('backend.pages.settings.hospital-schedule-actions', ['id' => $id]);
             })->excludeFromExport()->unsortable()->label('Action'),
         ];
     }
