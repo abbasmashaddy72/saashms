@@ -60,7 +60,21 @@
                 </div>
             </div>
             <div id="modules" class="tab-pane" role="tabpanel" aria-labelledby="modules-tab">
-                Modiles
+                <div class="grid grid-cols-12 gap-5">
+
+                    <div class="col-span-12">
+                        <div class="flex items-center justify-between mt-20 lg:mt-8">
+                            <div class="mr-auto text-lg font-medium">
+                                {{ 'Modules' }}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-span-12">
+                        @livewire('backend.tables.module-table')
+                    </div>
+
+                </div>
             </div>
             <div id="timings" class="tab-pane" role="tabpanel" aria-labelledby="timings-tab">
                 <div class="grid grid-cols-12 gap-5">
