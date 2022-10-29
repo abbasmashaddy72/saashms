@@ -43,7 +43,7 @@
             <!-- BEGIN: Top Bar -->
             @include('layouts.backend.partials.tool-bar')
             <!-- END: Top Bar -->
-            <div class="flex items-center justify-between mt-20 lg:mt-8 intro-y">
+            <div class="flex items-center justify-between mt-20 lg:mt-8">
                 <div class="mr-auto text-lg font-medium">
                     @if (getRouteAction() == 'create')
                         {{ __('Create') }} {{ $title }}
@@ -67,7 +67,9 @@
         </div>
 
     </div>
+    @livewire('livewire-ui-modal')
     @livewireScripts
+    <wireui:scripts />
     @stack('scripts')
 </body>
 

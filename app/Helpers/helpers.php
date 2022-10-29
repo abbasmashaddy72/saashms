@@ -92,8 +92,6 @@ if (!function_exists('set_static_option')) {
 if (!function_exists('get_static_option')) {
     function get_static_option($key)
     {
-        global $key;
-        $key = $key;
         $value = StaticOptions::where('key', $key)->first();
         Cache::remember($key, 86400, function () {
             global $key;

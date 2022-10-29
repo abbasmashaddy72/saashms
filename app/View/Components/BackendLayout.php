@@ -16,19 +16,7 @@ class BackendLayout extends Component
     {
         $this->agent = new Agent();
 
-        $this->side_menu = [
-            'dashboard' => [
-                'icon' => 'home',
-                'title' => 'Dashboard',
-                'route_name' => 'dashboard',
-            ],
-            'users' => [
-                'icon' => 'users',
-                'title' => 'Users',
-                'route_name' => 'users',
-            ],
-            'devider'
-        ];
+        $this->side_menu = SideMenu::Menu();
 
         $pageName = request()->route()->getName();
         $activeMenu = $this->activeMenu($pageName);

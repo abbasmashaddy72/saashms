@@ -13,3 +13,9 @@ Breadcrumbs::for('users', function (Generator $trail) {
     $trail->parent('#');
     $trail->push('Users', route('users'));
 });
+
+// Dashboard > Settings
+Breadcrumbs::for('settings', function (Generator $trail) {
+    $trail->parent('#');
+    $trail->push('Settings', route('settings'));
+});

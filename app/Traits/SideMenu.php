@@ -52,23 +52,25 @@ trait SideMenu
         ];
     }
 
-    // public function side_menu()
-    // {
-    //     $side_menu = '';
-    //     $side_menu = [
-    //         'dashboard' => [
-    //             'icon' => 'home',
-    //             'title' => 'Dashboard',
-    //             'route_name' => 'dashboard',
-    //         ],
-    //         'devider'
-    //     ];
-    //     $pageName = request()->route()->getName();
-    //     $activeMenu = $this->activeMenu($pageName);
-    //     view()->share('first_level_active_index', $activeMenu['first_level_active_index']);
-    //     view()->share('second_level_active_index', $activeMenu['second_level_active_index']);
-    //     view()->share('third_level_active_index', $activeMenu['third_level_active_index']);
-
-    //     return 'side_menu';
-    // }
+    public static function Menu()
+    {
+        return [
+            'dashboard' => [
+                'icon' => 'home',
+                'title' => 'Dashboard',
+                'route_name' => 'dashboard',
+            ],
+            'users' => [
+                'icon' => 'users',
+                'title' => 'Users',
+                'route_name' => 'users',
+            ],
+            'settings' => [
+                'icon' => 'settings',
+                'title' => 'Settings',
+                'route_name' => 'settings',
+            ],
+            'devider'
+        ];
+    }
 }
