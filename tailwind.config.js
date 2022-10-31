@@ -11,6 +11,7 @@ module.exports = {
     content: [
         "./app/Http/Livewire/**/*.php",
         "./config/livewire-datatables.php",
+        "./config/livewire-ui-modal.php",
         "./resources/views/**/*.blade.php",
         "./storage/framework/views/*.php",
         "./vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php",
@@ -21,7 +22,12 @@ module.exports = {
     ],
     darkMode: "class",
     options: {
-        safelist: ["sm:max-w-2xl"],
+        safelist: [
+            {
+                pattern: /max-w-(sm|md|lg|xl|2xl|3xl|4xl|5xl|6xl|7xl)/,
+                variants: ["sm", "md", "lg", "xl", "2xl"],
+            },
+        ],
     },
     presets: [require("./vendor/wireui/wireui/tailwind.config.js")],
     theme: {

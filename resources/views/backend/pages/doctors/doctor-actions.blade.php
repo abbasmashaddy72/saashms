@@ -1,5 +1,5 @@
 <div class="flex justify-around space-x-1">
-    <button wire:click='$emit("openModal", "backend.modals.hospital-schedule-modal", @json(['hospital_schedule_id' => $id]))'
+    <button wire:click='$emit("openModal", "backend.modals.doctor-modal", @json(['user_id' => $id]))'
         class="p-1 rounded text-primary hover:bg-primary hover:text-white">
         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path

@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Doctor;
-use App\Models\User;
+use App\Models\Department;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class UserSeeder extends Seeder
+class DepartmentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        User::factory()->count(rand(100, 200))->create();
+        Department::factory()->count(5, 10)->create();
     }
 }

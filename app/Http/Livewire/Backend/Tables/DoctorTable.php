@@ -3,25 +3,20 @@
 namespace App\Http\Livewire\Backend\Tables;
 
 use App\Models\User;
-use Mediconesystems\LivewireDatatables\BooleanColumn;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\DateColumn;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
-use Mediconesystems\LivewireDatatables\NumberColumn;
 
-class UsersTable extends LivewireDatatable
+class DoctorTable extends LivewireDatatable
 {
     public $model = User::class;
     public $exportable = true;
 
     public function builder()
     {
-        return User::query()->with('role');
-    }
-
-    public function roles()
-    {
-        return getKeyValues('Role', 'title', 'id');
+        return User::query()->with('doctor')->whereHas('role', function ($query) {
+            $query->where('title', 'Doctor');
+        });
     }
 
     public function columns()
@@ -41,19 +36,35 @@ class UsersTable extends LivewireDatatable
                 ->searchable()
                 ->filterable(),
 
-            BooleanColumn::name('email_verified_at')
-                ->label('Email Verified')
+            Column::name('doctor.specialist')
+                ->searchable()
                 ->filterable(),
 
-            Column::name('role.title')
-                ->filterable($this->roles())
-                ->label('Role Name'),
+            Column::name('doctor.reg_no')
+                ->searchable()
+                ->filterable(),
+
+            Column::name('doctor.opd_reg_fee')
+                ->searchable()
+                ->filterable(),
+
+            Column::name('doctor.ipd_reg_fee')
+                ->searchable()
+                ->filterable(),
+
+            Column::name('doctor.ipd_consultation_fee')
+                ->searchable()
+                ->filterable(),
+
+            Column::name('doctor.opd_consultation_fee')
+                ->searchable()
+                ->filterable(),
 
             DateColumn::name('created_at')
                 ->filterable(),
 
             Column::callback(['id'], function ($id) {
-                return view('backend.pages.users.actions', ['id' => $id]);
+                return view('backend.pages.doctors.doctor-actions', ['id' => $id]);
             })->excludeFromExport()->unsortable()->label('Action'),
         ];
     }

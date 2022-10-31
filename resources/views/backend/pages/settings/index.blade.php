@@ -1,4 +1,5 @@
 <x-backend-layout>
+    <x-slot name="breadcrumb">{!! Breadcrumbs::render('settings') !!}</x-slot>
     <div class="col-span-12 lg:col-span-4">
         <div class="pr-1">
             <div class="p-2 box">
@@ -30,7 +31,13 @@
             <div id="settings" class="tab-pane active" role="tabpanel" aria-labelledby="settings-tab">
                 <div class="grid grid-cols-12 gap-5 mt-5">
 
-                    <x-slot name="breadcrumb">{!! Breadcrumbs::render('settings') !!}</x-slot>
+                    <div class="col-span-12">
+                        <div class="flex items-center justify-between mt-20 lg:mt-8">
+                            <div class="mr-auto text-lg font-medium">
+                                {{ 'Settings' }}
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="col-span-12">
                         @livewire('backend.forms.settings-form')

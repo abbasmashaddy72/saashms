@@ -22,6 +22,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'branch_id'
     ];
 
     /**
@@ -55,8 +56,18 @@ class User extends Authenticatable
         return $firstWord[0] . $lastWord[0];
     }
 
-    public function roles()
+    public function role()
     {
         return $this->belongsToMany(Role::class);
+    }
+
+    public function branch()
+    {
+        return $this->belongsTo(Branch::class);
+    }
+
+    public function doctor()
+    {
+        return $this->hasOne(Doctor::class);
     }
 }

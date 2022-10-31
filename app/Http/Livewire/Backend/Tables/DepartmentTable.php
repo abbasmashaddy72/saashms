@@ -2,26 +2,20 @@
 
 namespace App\Http\Livewire\Backend\Tables;
 
-use App\Models\User;
+use App\Models\Department;
 use Mediconesystems\LivewireDatatables\BooleanColumn;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\DateColumn;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
-use Mediconesystems\LivewireDatatables\NumberColumn;
 
-class UsersTable extends LivewireDatatable
+class DepartmentTable extends LivewireDatatable
 {
-    public $model = User::class;
+    public $model = Department::class;
     public $exportable = true;
 
     public function builder()
     {
-        return User::query()->with('role');
-    }
-
-    public function roles()
-    {
-        return getKeyValues('Role', 'title', 'id');
+        return Department::query();
     }
 
     public function columns()
@@ -33,27 +27,23 @@ class UsersTable extends LivewireDatatable
             Column::index($this)
                 ->unsortable(),
 
-            Column::name('name')
+            Column::name('title')
                 ->searchable()
                 ->filterable(),
 
-            Column::name('email')
+            Column::name('description')
+                ->truncate(50)
                 ->searchable()
                 ->filterable(),
 
-            BooleanColumn::name('email_verified_at')
-                ->label('Email Verified')
+            BooleanColumn::name('status')
                 ->filterable(),
-
-            Column::name('role.title')
-                ->filterable($this->roles())
-                ->label('Role Name'),
 
             DateColumn::name('created_at')
                 ->filterable(),
 
             Column::callback(['id'], function ($id) {
-                return view('backend.pages.users.actions', ['id' => $id]);
+                return view('backend.pages.doctors.department-actions', ['id' => $id]);
             })->excludeFromExport()->unsortable()->label('Action'),
         ];
     }

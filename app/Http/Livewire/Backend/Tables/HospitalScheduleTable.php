@@ -14,7 +14,7 @@ class HospitalScheduleTable extends LivewireDatatable
 
     public function builder()
     {
-        return HospitalSchedule::query()->with('branches');
+        return HospitalSchedule::query()->with('branch');
     }
 
     public function columns()
@@ -26,7 +26,7 @@ class HospitalScheduleTable extends LivewireDatatable
             Column::index($this)
                 ->unsortable(),
 
-            Column::name('branches.landmark')
+            Column::name('branch.landmark')
                 ->searchable()
                 ->filterable()
                 ->label('Area Name'),

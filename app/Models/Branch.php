@@ -19,8 +19,8 @@ class Branch extends Model
         'branch_number'
     ];
 
-    public function areas()
+    public function area()
     {
-        return $this->belongsTo(Area::class, 'area_id');
+        return $this->belongsTo(Area::class);
     }
 }

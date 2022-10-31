@@ -1,4 +1,4 @@
-<x-backend-layout>
+<x-backend-layout container_top="true">
     <div class="grid grid-cols-12 gap-5 mt-5">
 
         <x-slot name="breadcrumb">{!! Breadcrumbs::render('users') !!}</x-slot>

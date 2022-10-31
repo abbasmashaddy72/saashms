@@ -2,26 +2,21 @@
 
 namespace App\Http\Livewire\Backend\Tables;
 
-use App\Models\User;
-use Mediconesystems\LivewireDatatables\BooleanColumn;
+use App\Models\DoctorSchedule;
 use Mediconesystems\LivewireDatatables\Column;
 use Mediconesystems\LivewireDatatables\DateColumn;
 use Mediconesystems\LivewireDatatables\Http\Livewire\LivewireDatatable;
 use Mediconesystems\LivewireDatatables\NumberColumn;
+use Mediconesystems\LivewireDatatables\TimeColumn;
 
-class UsersTable extends LivewireDatatable
+class DoctorScheduleTable extends LivewireDatatable
 {
-    public $model = User::class;
+    public $model = DoctorSchedule::class;
     public $exportable = true;
 
     public function builder()
     {
-        return User::query()->with('role');
-    }
-
-    public function roles()
-    {
-        return getKeyValues('Role', 'title', 'id');
+        return DoctorSchedule::query()->with('user');
     }
 
     public function columns()
@@ -33,27 +28,30 @@ class UsersTable extends LivewireDatatable
             Column::index($this)
                 ->unsortable(),
 
-            Column::name('name')
+            Column::name('user.name')
                 ->searchable()
                 ->filterable(),
 
-            Column::name('email')
+            Column::name('day')
                 ->searchable()
                 ->filterable(),
 
-            BooleanColumn::name('email_verified_at')
-                ->label('Email Verified')
+            NumberColumn::name('per_patient_time')
                 ->filterable(),
 
-            Column::name('role.title')
-                ->filterable($this->roles())
-                ->label('Role Name'),
+            TimeColumn::name('from')
+                ->searchable()
+                ->filterable(),
+
+            TimeColumn::name('till')
+                ->searchable()
+                ->filterable(),
 
             DateColumn::name('created_at')
                 ->filterable(),
 
             Column::callback(['id'], function ($id) {
-                return view('backend.pages.users.actions', ['id' => $id]);
+                return view('backend.pages.doctors.doctor-schedule-actions', ['id' => $id]);
             })->excludeFromExport()->unsortable()->label('Action'),
         ];
     }

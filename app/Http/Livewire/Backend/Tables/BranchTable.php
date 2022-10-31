@@ -14,7 +14,7 @@ class BranchTable extends LivewireDatatable
 
     public function builder()
     {
-        return Branch::query()->with('areas');
+        return Branch::query()->with('area');
     }
 
     public function columns()
@@ -26,7 +26,7 @@ class BranchTable extends LivewireDatatable
             Column::index($this)
                 ->unsortable(),
 
-            Column::name('areas.name')
+            Column::name('area.name')
                 ->filterable()
                 ->label('Area Name'),
 

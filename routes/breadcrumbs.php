@@ -19,3 +19,9 @@ Breadcrumbs::for('settings', function (Generator $trail) {
     $trail->parent('#');
     $trail->push('Settings', route('settings'));
 });
+
+// Dashboard > Doctor
+Breadcrumbs::for('doctors', function (Generator $trail) {
+    $trail->parent('#');
+    $trail->push('Doctors', route('doctors'));
+});
