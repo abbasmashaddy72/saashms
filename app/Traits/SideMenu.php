@@ -60,6 +60,11 @@ trait SideMenu
                 'title' => 'Dashboard',
                 'route_name' => 'dashboard',
             ],
+            'patients' => [
+                'icon' => 'user-minus',
+                'title' => 'Patients',
+                'route_name' => 'patients',
+            ],
             'doctors' => [
                 'icon' => 'award',
                 'title' => 'Doctors',

@@ -22,6 +22,7 @@ Route::group(['middleware' => 'auth', 'verified', 'password.confirm', 'namespace
     Route::get('users', 'UserController@index')->name('users');
     Route::get('settings', 'SettingsController@index')->name('settings');
     Route::get('doctors', 'DoctorController@index')->name('doctors');
+    Route::get('patients', 'PatientController@index')->name('patients');
     Route::impersonate();
 });
 

@@ -1,5 +1,6 @@
 @props([
-    'right_button' => false,
+    'right_button_direct' => false,
+    'right_button_wire' => false,
     'container_top' => false,
 ])
 <!DOCTYPE html>
@@ -60,11 +61,14 @@
                             {{ $title }}
                         @endif
                     </div>
-                    @if ($right_button)
+                    @if ($right_button_direct)
                         <div class="sm:w-auto sm:mt-0">
                             <a href="{{ $top_right_url }}"
                                 class="mr-2 shadow-md btn btn-primary">{{ $top_right_text }}</a>
                         </div>
+                    @endif
+                    @if ($right_button_wire)
+                        {{ $right_button_wire }}
                     @endif
                 </div>
             @else

@@ -16,7 +16,7 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $data = ['Admin', 'Nurse', 'Doctor', 'Reception', 'Employee'];
+        $data = ['Admin', 'Nurse', 'Doctor', 'Reception', 'Employee', 'Patient'];
 
         foreach ($data as $item) {
             $data = Role::create(['title' => $item]);
@@ -27,6 +27,8 @@ class RoleSeeder extends Seeder
             } elseif ($item == 'Doctor') {
                 array_diff($data->permissions()->sync(Permission::inRandomOrder()->limit(rand(0, count(Permission::all())))->get()));
             } elseif ($item == 'Reception') {
+                array_diff($data->permissions()->sync(Permission::inRandomOrder()->limit(rand(0, count(Permission::all())))->get()));
+            } elseif ($item == 'Patient') {
                 array_diff($data->permissions()->sync(Permission::inRandomOrder()->limit(rand(0, count(Permission::all())))->get()));
             } else {
                 array_diff($data->permissions()->sync(Permission::inRandomOrder()->limit(rand(0, count(Permission::all())))->get()));

@@ -22,7 +22,17 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'branch_id'
+        'branch_id',
+        'status',
+        'gender',
+        'dob',
+        'qualification',
+        'designation',
+        'blood_group',
+        'contact_no',
+        'address',
+        'about',
+        'area_id',
     ];
 
     /**
@@ -69,5 +79,10 @@ class User extends Authenticatable
     public function doctor()
     {
         return $this->hasOne(Doctor::class);
+    }
+
+    public function area()
+    {
+        return $this->belongsTo(Area::class);
     }
 }

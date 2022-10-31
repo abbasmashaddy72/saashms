@@ -24,13 +24,10 @@ class DoctorController extends Controller
         //     return ['name' => $data1, 'id' => $key];
         // })->toArray();
 
-        // $data =
-        //     User::whereHas('role', function ($query) {
-        //         $query->where('title', 'Doctor');
-        //     })->map->only('name', 'id')->toArray();
+        $data = User::where('id', '15')->with('area');
 
-        // print_r($data);
-        // exit;
+        print_r($data);
+        exit;
 
         return view('backend.pages.doctors.index');
     }
