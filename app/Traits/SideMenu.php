@@ -65,6 +65,11 @@ trait SideMenu
                 'title' => 'OPD Patients',
                 'route_name' => 'opd-patients',
             ],
+            'beds' => [
+                'icon' => 'grid',
+                'title' => 'Bed Management',
+                'route_name' => 'beds',
+            ],
             'patients' => [
                 'icon' => 'user-minus',
                 'title' => 'Patients',

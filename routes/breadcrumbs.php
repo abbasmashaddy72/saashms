@@ -37,3 +37,9 @@ Breadcrumbs::for('opd_patient', function (Generator $trail) {
     $trail->parent('#');
     $trail->push('OPD Patients', route('opd-patients'));
 });
+
+// Dashboard > Bed Manage
+Breadcrumbs::for('bed-manage', function (Generator $trail) {
+    $trail->parent('#');
+    $trail->push('Bed Manage', route('beds'));
+});
