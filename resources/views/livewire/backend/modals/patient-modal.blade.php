@@ -1,6 +1,6 @@
 <x-backend.modal form-action="add">
     <x-slot name="title">
-        Add Doctor
+        Add Patient
     </x-slot>
 
     <x-slot name="content">

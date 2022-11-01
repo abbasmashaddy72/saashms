@@ -23,6 +23,7 @@ Route::group(['middleware' => 'auth', 'verified', 'password.confirm', 'namespace
     Route::get('settings', 'SettingsController@index')->name('settings');
     Route::get('doctors', 'DoctorController@index')->name('doctors');
     Route::get('patients', 'PatientController@index')->name('patients');
+    Route::get('opd-patients', 'OpdPatientController@index')->name('opd-patients');
     Route::impersonate();
 });
 

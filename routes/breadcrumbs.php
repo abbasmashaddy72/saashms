@@ -31,3 +31,9 @@ Breadcrumbs::for('patients', function (Generator $trail) {
     $trail->parent('#');
     $trail->push('Patients', route('patients'));
 });
+
+// Dashboard > OPD Patients
+Breadcrumbs::for('opd_patient', function (Generator $trail) {
+    $trail->parent('#');
+    $trail->push('OPD Patients', route('opd-patients'));
+});

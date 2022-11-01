@@ -60,6 +60,11 @@ trait SideMenu
                 'title' => 'Dashboard',
                 'route_name' => 'dashboard',
             ],
+            'opd-patients' => [
+                'icon' => 'play',
+                'title' => 'OPD Patients',
+                'route_name' => 'opd-patients',
+            ],
             'patients' => [
                 'icon' => 'user-minus',
                 'title' => 'Patients',
