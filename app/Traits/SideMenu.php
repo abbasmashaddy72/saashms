@@ -76,9 +76,14 @@ trait SideMenu
                 'route_name' => 'patients',
             ],
             'doctors' => [
-                'icon' => 'award',
+                'icon' => 'bookmark',
                 'title' => 'Doctors',
                 'route_name' => 'doctors',
+            ],
+            'blood-manage' => [
+                'icon' => 'award',
+                'title' => 'Blood Manage',
+                'route_name' => 'blood-manage',
             ],
             'users' => [
                 'icon' => 'users',

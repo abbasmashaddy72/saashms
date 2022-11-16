@@ -85,4 +85,9 @@ class User extends Authenticatable
     {
         return $this->belongsTo(Area::class);
     }
+
+    public function blood_donations()
+    {
+        return $this->hasMany(BloodDonation::class, 'donated_patient_id');
+    }
 }

@@ -43,3 +43,9 @@ Breadcrumbs::for('bed-manage', function (Generator $trail) {
     $trail->parent('#');
     $trail->push('Bed Manage', route('beds'));
 });
+
+// Dashboard > Blood Manage
+Breadcrumbs::for('blood-manage', function (Generator $trail) {
+    $trail->parent('#');
+    $trail->push('Blood Manage', route('blood-manage'));
+});
